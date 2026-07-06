@@ -1,0 +1,34 @@
+import { motion, type HTMLMotionProps, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
+
+type EditorialButtonProps = HTMLMotionProps<"button"> & {
+  children: ReactNode;
+  variant?: "solid" | "outline" | "dark";
+};
+
+const styles = {
+  solid: "border-pink bg-pink text-ink hover:bg-pink-strong",
+  outline: "border-bone text-bone hover:border-pink hover:text-pink",
+  dark: "border-ink text-ink hover:bg-ink hover:text-pink",
+};
+
+export function EditorialButton({
+  children,
+  className = "",
+  variant = "solid",
+  ...props
+}: EditorialButtonProps) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.button
+      type="button"
+      className={`editorial-focus inline-flex min-h-11 items-center justify-center border-2 px-5 py-3 font-sans text-xs font-bold uppercase tracking-[0.12em] transition-colors ${styles[variant]} ${className}`}
+      whileHover={reduceMotion ? undefined : { y: -2 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+      {...props}
+    >
+      {children}
+    </motion.button>
+  );
+}
