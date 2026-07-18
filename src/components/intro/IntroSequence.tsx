@@ -56,7 +56,7 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
   );
 
   useEffect(() => {
-    const timer = reduceMotion ? window.setTimeout(completeIntro, 220) : undefined;
+    const timer = window.setTimeout(completeIntro, reduceMotion ? 220 : 7000);
     const previousOverflow = document.body.style.overflow;
     const previousTouchAction = document.body.style.touchAction;
 
@@ -84,14 +84,17 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
         event.preventDefault();
         updateIntroProgress(-0.12);
       }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        updateIntroProgress(0.2);
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      if (timer) {
-        window.clearTimeout(timer);
-      }
+      window.clearTimeout(timer);
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
       document.body.style.touchAction = previousTouchAction;
@@ -106,6 +109,10 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
       updateIntroProgress(event.deltaY * 0.00125);
+    };
+
+    const handlePointerDown = () => {
+      updateIntroProgress(0.18);
     };
 
     const handleWindowTouchMove = (event: TouchEvent) => {
@@ -130,12 +137,14 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("pointerdown", handlePointerDown);
     window.addEventListener("touchstart", handleWindowTouchStart, { passive: true });
     window.addEventListener("touchmove", handleWindowTouchMove, { passive: false });
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("pointerdown", handlePointerDown);
       window.removeEventListener("touchstart", handleWindowTouchStart);
       window.removeEventListener("touchmove", handleWindowTouchMove);
       window.removeEventListener("resize", handleResize);

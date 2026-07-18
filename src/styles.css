@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -31,13 +32,32 @@ body {
   background-size: 72px 72px;
 }
 
+#root {
+  min-height: 100svh;
+  overflow-x: clip;
+}
+
 section {
-  scroll-margin-top: 5.75rem;
+  scroll-margin-top: 6rem;
 }
 
 @media (max-width: 1023px) {
   section {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 5.25rem;
+  }
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (hover: none) {
+  .group:hover .group-hover\:scale-\[1\.045\],
+  .group:hover .group-hover\:scale-\[1\.03\] {
+    transform: none;
   }
 }
 

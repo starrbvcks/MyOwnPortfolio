@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { siteMeta } from "../content";
 import { EditorialButton } from "./EditorialButton";
@@ -8,15 +8,32 @@ import { PinkStar } from "./PinkStar";
 export function ContactCTA() {
   const reduceMotion = useReducedMotion();
   const [copyStatus, setCopyStatus] = useState("");
+  const statusTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (statusTimerRef.current !== null) {
+        window.clearTimeout(statusTimerRef.current);
+      }
+    };
+  }, []);
 
   const copyEmail = async () => {
+    if (statusTimerRef.current !== null) {
+      window.clearTimeout(statusTimerRef.current);
+    }
+
     try {
-      await navigator.clipboard.writeText(siteMeta.email);
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(siteMeta.email);
+      } else {
+        throw new Error("Clipboard API unavailable");
+      }
       setCopyStatus("Email copied");
     } catch {
-      setCopyStatus("Copy failed. Email is visible below.");
+      setCopyStatus(`Copy failed. Email: ${siteMeta.email}`);
     }
-    window.setTimeout(() => setCopyStatus(""), 2200);
+    statusTimerRef.current = window.setTimeout(() => setCopyStatus(""), 2600);
   };
 
   return (
@@ -56,7 +73,9 @@ export function ContactCTA() {
               {siteMeta.availability}
             </p>
             <div className="mt-7 flex flex-col gap-3">
-              <EditorialLink href={`mailto:${siteMeta.email}`}>Start a Conversation</EditorialLink>
+              <EditorialLink href={`mailto:${siteMeta.email}`} aria-label={`Email Setareh at ${siteMeta.email}`}>
+                Start a Conversation
+              </EditorialLink>
               <EditorialButton variant="outline" onClick={copyEmail}>
                 Copy Email
               </EditorialButton>
@@ -69,6 +88,7 @@ export function ContactCTA() {
               target="_blank"
               rel="noreferrer"
               className="editorial-focus mt-3 block font-mono text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-pink"
+              aria-label="Open Setareh GitHub profile in a new tab"
             >
               GitHub / starrbvcks
             </a>

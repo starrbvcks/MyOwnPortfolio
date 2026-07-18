@@ -7,7 +7,7 @@ export const siteMeta = {
   email: "sstarehk@gmail.com",
   github: "https://github.com/starrbvcks",
   instagram: "@starrbvckssss",
-  availability: "WEB DESIGN / WEB DEVELOPMENT / CREATIVE COLLABORATION",
+  availability: "PORTFOLIO SITES / EDITORIAL INTERFACES / CREATIVE FRONT-END",
 };
 
 export const navigation = [
@@ -17,6 +17,33 @@ export const navigation = [
   { label: "Contact", href: "#contact", number: "004" },
 ] as const;
 
+export type ProjectItem = {
+  id: string;
+  number: string;
+  title: string;
+  year: string;
+  role: string;
+  projectType: string;
+  services: string[];
+  responsibilities: string[];
+  status: string;
+  tools: string;
+  technologies: string[];
+  category: string;
+  image: string;
+  images?: string[];
+  imageAlt: string;
+  description: string;
+  challenge: string;
+  solution: string;
+  interaction: string;
+  accessibilityNotes: string;
+  result: string;
+  variant: "featured" | "split" | "pink";
+  liveUrl?: string;
+  githubUrl?: string;
+};
+
 export const projects = [
   {
     id: "eleanor",
@@ -24,14 +51,21 @@ export const projects = [
     title: "Eleanor",
     year: "2026",
     role: "Web Design / UI Design / Web Development",
+    projectType: "Self-initiated portfolio case study",
+    services: ["Interface design", "Front-end build", "Responsive systems"],
+    responsibilities: ["Art direction", "Product flow", "Reusable UI patterns"],
+    status: "Concept build",
     tools: "Figma / React / TypeScript / Framer Motion",
     technologies: ["React", "TypeScript", "Responsive Components", "Framer Motion"],
     category: "Fashion E-commerce Experience",
     image:
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=82",
+    images: [
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=82",
+    ],
     imageAlt: "Editorial homepage design for the Eleanor fashion e-commerce project",
     description:
-      "A refined fashion storefront with sharp editorial rhythm, tactile product moments, and a front-end flow built for confident browsing.",
+      "A concept fashion storefront shaped around editorial pacing, clear product discovery, and a browsing flow that still feels tactile.",
     challenge:
       "Balance a bold fashion identity with clear product browsing and conversion.",
     solution:
@@ -41,8 +75,10 @@ export const projects = [
     accessibilityNotes:
       "Clear navigation landmarks, visible focus states, and readable product metadata.",
     result:
-      "A concept storefront that feels expressive without making the shopping path harder.",
+      "A polished concept that keeps the shopping path readable while giving the brand a stronger visual point of view.",
     variant: "featured",
+    liveUrl: "",
+    githubUrl: "",
   },
   {
     id: "monolith",
@@ -50,14 +86,21 @@ export const projects = [
     title: "Monolith",
     year: "2026",
     role: "Art Direction / Web Design / Motion",
+    projectType: "Experimental brand and archive study",
+    services: ["Art direction", "Motion design", "Interface structure"],
+    responsibilities: ["Archive layout", "Motion language", "Content hierarchy"],
+    status: "Experimental build",
     tools: "Figma / React / Framer Motion / CSS",
     technologies: ["React", "Framer Motion", "CSS Grid", "Audio-first UI"],
     category: "Experimental Music Label Website",
     image:
       "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=82",
+    images: [
+      "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=82",
+    ],
     imageAlt: "Dark experimental interface for the Monolith music label website",
     description:
-      "A stark label site that turns releases, artists, and live notes into a noisy but navigable digital archive.",
+      "A stark label-site exploration that turns releases, artists, and live notes into a noisy but navigable digital archive.",
     challenge:
       "Create a raw label identity while keeping releases, artists, and events easy to scan.",
     solution:
@@ -67,8 +110,10 @@ export const projects = [
     accessibilityNotes:
       "Hover details are duplicated in visible text so touch and keyboard users keep context.",
     result:
-      "A label system with atmosphere, hierarchy, and enough structure for frequent updates.",
+      "A flexible archive direction with atmosphere, hierarchy, and enough structure to support frequent updates.",
     variant: "split",
+    liveUrl: "",
+    githubUrl: "",
   },
   {
     id: "neural-forge",
@@ -76,14 +121,21 @@ export const projects = [
     title: "Neural Forge",
     year: "2026",
     role: "Product Design / UI Design / Web Development",
+    projectType: "Technical landing-page concept",
+    services: ["Product storytelling", "UI systems", "Front-end development"],
+    responsibilities: ["Page architecture", "Responsive components", "Interaction states"],
+    status: "Portfolio concept",
     tools: "Figma / React / TypeScript / Tailwind",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Accessible UI"],
     category: "AI Development Tool Landing Page",
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=82",
+    images: [
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=82",
+    ],
     imageAlt: "AI developer platform landing page interface for Neural Forge",
     description:
-      "A technical landing page with a bold product story, modular UI sections, and enough attitude to avoid looking like default SaaS.",
+      "A technical landing-page concept with a sharper product story, modular UI sections, and enough attitude to avoid default SaaS patterns.",
     challenge:
       "Make an AI developer product feel credible and technical without slipping into generic SaaS.",
     solution:
@@ -93,10 +145,12 @@ export const projects = [
     accessibilityNotes:
       "High-contrast sections, semantic content order, and reduced-motion-friendly interactions.",
     result:
-      "A product page concept that sells the tool and demonstrates front-end craft.",
+      "A credible product-page direction that explains the tool while showing front-end craft.",
     variant: "pink",
+    liveUrl: "",
+    githubUrl: "",
   },
-] as const;
+] satisfies ProjectItem[];
 
 export const experiments = [
   {
@@ -104,7 +158,7 @@ export const experiments = [
     title: "Scroll Typography Study",
     type: "Motion Prototype",
     technology: "Framer Motion / React",
-    note: "A staggered text system that maps scroll progress to editorial type rhythm.",
+    note: "A motion sketch for mapping scroll progress to staggered editorial type without hiding the actual message.",
     year: "2026",
   },
   {
@@ -112,7 +166,7 @@ export const experiments = [
     title: "Cursor Distortion Experiment",
     type: "Interaction Study",
     technology: "Canvas / TypeScript",
-    note: "Pointer movement bends a noisy image field while touch devices receive a static fallback.",
+    note: "A pointer-led distortion study with a static touch fallback so the idea is still readable without a cursor.",
     year: "2026",
   },
   {
@@ -120,7 +174,7 @@ export const experiments = [
     title: "Interactive Album Poster",
     type: "Digital Poster",
     technology: "CSS / Framer Motion",
-    note: "A responsive poster layout with animated track metadata and halftone overlays.",
+    note: "A responsive poster prototype where track metadata, halftone overlays, and motion cues behave like interface material.",
     year: "2026",
   },
 ] as const;
@@ -130,7 +184,7 @@ export const visualDesignItems = [
     title: "Poster Design",
     category: "Editorial Print",
     year: "2026",
-    note: "A stark typographic poster system built around tension, silence, and one aggressive pink mark.",
+    note: "A static typographic system built around tension, silence, and one aggressive pink mark.",
     image:
       "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80",
     imageAlt: "High contrast editorial poster design with architectural geometry",
@@ -150,7 +204,7 @@ export const visualDesignItems = [
     title: "Typography Study",
     category: "Type System",
     year: "2025",
-    note: "Display type experiments balancing brutal scale with readable interface rhythm.",
+    note: "Static display-type studies balancing brutal scale with readable composition.",
     image: "",
     imageAlt: "",
     variant: "pink",

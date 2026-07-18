@@ -69,7 +69,7 @@ export function MobileMenu({ isOpen, items, location, onClose }: MobileMenuProps
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title"
-          className="fixed inset-0 z-50 bg-ink px-5 py-5 lg:hidden"
+          className="fixed inset-0 z-50 overflow-y-auto bg-ink px-5 py-5 lg:hidden"
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -86,7 +86,7 @@ export function MobileMenu({ isOpen, items, location, onClose }: MobileMenuProps
             <button
               type="button"
               onClick={onClose}
-              className="editorial-focus min-h-11 border-2 border-pink px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-pink"
+              className="editorial-focus min-h-11 border-2 border-pink px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-pink transition-colors hover:bg-pink hover:text-ink"
               aria-label="Close navigation menu"
             >
               Close
@@ -99,7 +99,7 @@ export function MobileMenu({ isOpen, items, location, onClose }: MobileMenuProps
           </h2>
 
           <motion.div
-            className="mt-20 flex flex-col gap-5"
+            className="mt-14 flex flex-col gap-4 pb-24 sm:mt-20 sm:gap-5"
             initial={reduceMotion ? false : "closed"}
             animate="open"
             exit="closed"

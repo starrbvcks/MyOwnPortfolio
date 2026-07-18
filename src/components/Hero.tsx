@@ -79,13 +79,13 @@ export function Hero() {
       id="home"
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
-      className="relative min-h-screen overflow-hidden border-b-2 border-bone/15 bg-ink px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8"
+      className="relative min-h-[100svh] overflow-hidden border-b-2 border-bone/15 bg-ink px-4 pb-14 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8"
     >
       <GrainOverlay className="absolute inset-0 opacity-[0.11]" />
       <div className="absolute inset-x-0 top-0 h-px bg-pink/40" />
       <div className="editorial-grid absolute inset-0 opacity-35" />
 
-      <div className="mx-auto grid max-w-7xl gap-10 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-14">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-14">
         <div className="relative order-2 lg:order-1">
           <motion.div style={reduceMotion ? undefined : { x: starX, y: starY }}>
             <PinkStar
@@ -98,11 +98,22 @@ export function Hero() {
           <HalftoneImage imageX={canParallax ? imageX : undefined} imageY={canParallax ? imageY : undefined} />
         </div>
 
-        <div className="relative order-1 z-10 lg:order-2">
+        <div className="group/heroText relative order-1 z-10 lg:order-2">
           <motion.p
-            className="mb-5 inline-block max-w-md border-2 border-pink px-3 py-2 font-mono text-[0.68rem] uppercase leading-5 tracking-[0.1em] text-pink-light"
+            className="mb-5 inline-block max-w-md border-2 border-pink px-3 py-2 font-mono text-[0.68rem] uppercase leading-5 tracking-[0.1em] text-pink-light transition-all duration-300 ease-out group-hover/heroText:-translate-y-2 group-hover/heroText:translate-x-4 group-hover/heroText:-rotate-1 group-hover/heroText:border-pink-light group-hover/heroText:text-bone"
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
+            whileHover={
+              reduceMotion
+                ? undefined
+                : {
+                    x: 8,
+                    y: -3,
+                    rotate: -0.6,
+                    borderColor: "#FFC2DC",
+                    color: "#F5F2F3",
+                  }
+            }
             transition={{ delay: 0.18, duration: 0.45 }}
           >
             Setareh means star. Made to stand out in the dark.
@@ -118,14 +129,26 @@ export function Hero() {
               as="h1"
               lines={["DESIGN.", "CODE.", "CHARACTER."]}
               highlightLines={["CODE."]}
-              className="max-w-[54rem] font-sans text-[clamp(2.9rem,11.5vw,6.8rem)] font-extrabold uppercase leading-[1.02] tracking-normal text-bone [overflow-wrap:break-word] sm:text-[clamp(3.8rem,10vw,6.8rem)] lg:text-[clamp(4.3rem,6.45vw,6.9rem)] xl:text-[clamp(5rem,6.6vw,7.2rem)]"
+              interactive
+              lineClassName="transition-transform duration-300 ease-out group-hover/heroText:-translate-y-1 group-hover/heroText:translate-x-5 group-hover/heroText:-rotate-1"
+              className="max-w-[54rem] font-sans text-[clamp(2.65rem,16vw,6.8rem)] font-extrabold uppercase leading-[1.02] tracking-normal text-bone [overflow-wrap:anywhere] sm:text-[clamp(3.8rem,10vw,6.8rem)] lg:text-[clamp(4.3rem,6.45vw,6.9rem)] xl:text-[clamp(5rem,6.6vw,7.2rem)]"
             />
           </div>
 
           <motion.p
-            className="mt-6 max-w-2xl border-l-4 border-pink pl-5 text-base leading-8 text-muted sm:text-lg lg:max-w-xl"
+            className="mt-6 max-w-2xl border-l-4 border-pink pl-5 text-base leading-8 text-muted transition-all duration-300 ease-out group-hover/heroText:-translate-y-1 group-hover/heroText:translate-x-4 group-hover/heroText:text-bone sm:text-lg lg:max-w-xl"
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
+            whileHover={
+              reduceMotion
+                ? undefined
+                : {
+                    x: 10,
+                    y: -2,
+                    color: "#F5F2F3",
+                    borderColor: "#FF3B9D",
+                  }
+            }
             transition={{ delay: 0.72, duration: 0.5 }}
           >
             Web Designer & Web Developer creating bold and

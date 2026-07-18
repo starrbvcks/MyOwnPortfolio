@@ -12,12 +12,12 @@ import { ScrollProgress } from "./components/ScrollProgress";
 import { SelectedWork } from "./components/SelectedWork";
 import { VisualDesign } from "./components/VisualDesign";
 
-const FORCE_INTRO_REPLAY = true;
+const FORCE_INTRO_REPLAY = false;
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(() => {
     const hasSeenIntro = sessionStorage.getItem(INTRO_STORAGE_KEY) === "true";
-    return FORCE_INTRO_REPLAY || !hasSeenIntro;
+    return !hasSeenIntro;
   });
 
   useEffect(() => {

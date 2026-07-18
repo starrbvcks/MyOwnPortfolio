@@ -3,11 +3,10 @@ import { siteMeta } from "../content";
 import { GrainOverlay } from "./GrainOverlay";
 
 const aboutLines = [
-  "I work between design and web development.",
-  "I create websites that are expressive, usable and intentionally built.",
-  "I care about strong visual identity.",
-  "I care about clear interaction.",
-  "I care about details that make digital experiences feel memorable.",
+  "I design and build web experiences from first visual direction to final responsive details.",
+  "I like interfaces with a strong point of view, but the path through them still has to feel clear.",
+  "I pay attention to typography, rhythm, image treatment, interaction states, and the parts people notice only when they break.",
+  "My work sits between visual identity and front-end implementation, which helps ideas survive the trip from Figma to browser.",
 ];
 
 export function AboutPreview() {
@@ -34,7 +33,7 @@ export function AboutPreview() {
           </h2>
           <div className="mt-7 h-1 w-40 bg-pink" />
           <h3 className="mt-8 max-w-3xl font-display text-[clamp(1.8rem,3.6vw,3.4rem)] font-extrabold uppercase leading-[1.04] tracking-normal text-pink">
-            A designer who speaks code.
+            A designer who can carry an idea into code.
           </h3>
         </motion.div>
 

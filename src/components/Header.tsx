@@ -115,6 +115,8 @@ export function Header() {
                       isActive ? "text-pink" : "text-muted hover:text-bone"
                     }`}
                     href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => setIsDesktopNavOpen(false)}
                     tabIndex={isDesktopNavOpen ? 0 : -1}
                     key={item.href}
                     initial={false}

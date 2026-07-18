@@ -1,7 +1,30 @@
 import { projects } from "../content";
+import type { ProjectItem } from "../content";
 import { ProjectCard } from "./ProjectCard";
+import { useEffect, useState } from "react";
+
+const API_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8011";
 
 export function SelectedWork() {
+  const [portfolioProjects, setPortfolioProjects] = useState<ProjectItem[]>(projects);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch(`${API_URL}/api/projects`, { signal: controller.signal })
+      .then((response) => (response.ok ? response.json() : Promise.reject()))
+      .then((data: ProjectItem[]) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setPortfolioProjects(data);
+        }
+      })
+      .catch(() => {
+        setPortfolioProjects(projects);
+      });
+
+    return () => controller.abort();
+  }, []);
+
   return (
     <section
       id="work"
@@ -18,12 +41,13 @@ export function SelectedWork() {
             </h2>
           </div>
           <p className="max-w-xl border-l-4 border-pink pl-5 text-lg leading-8 text-muted">
-            A selection of websites, interfaces and digital experiences.
+            Concept builds and portfolio case studies where visual direction,
+            interaction, and front-end structure are developed together.
           </p>
         </div>
 
         <div className="grid gap-7">
-          {projects.map((project, index) => (
+          {portfolioProjects.map((project, index) => (
             <ProjectCard project={project} index={index} key={project.title} />
           ))}
         </div>

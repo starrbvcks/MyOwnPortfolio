@@ -17,8 +17,8 @@ export function VisualDesign() {
             </h2>
           </div>
           <p className="max-w-xl border-l-4 border-pink pl-5 text-lg leading-8 text-muted">
-            Posters, identity fragments, typography studies and image systems
-            that inform the interface work.
+            Static posters, identity fragments, typography studies, and image
+            systems that shape the visual language behind the interface work.
           </p>
         </div>
 
