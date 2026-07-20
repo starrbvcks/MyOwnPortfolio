@@ -14,7 +14,8 @@ export const navigation = [
   { label: "Work", href: "#work", number: "001" },
   { label: "About", href: "#about", number: "002" },
   { label: "Playground", href: "#playground", number: "003" },
-  { label: "Contact", href: "#contact", number: "004" },
+  { label: "Browser", href: "#visual", number: "004" },
+  { label: "Contact", href: "#contact", number: "005" },
 ] as const;
 
 export type ProjectItem = {

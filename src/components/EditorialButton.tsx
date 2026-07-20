@@ -23,7 +23,7 @@ export function EditorialButton({
   return (
     <motion.button
       type="button"
-      className={`editorial-focus inline-flex min-h-11 items-center justify-center border-2 px-5 py-3 font-sans text-xs font-bold uppercase tracking-[0.12em] transition-colors ${styles[variant]} ${className}`}
+      className={`editorial-focus inline-flex min-h-11 items-center justify-center border-2 px-5 py-3 font-sans text-[0.82rem] font-black uppercase tracking-[0.1em] transition-colors ${styles[variant]} ${className}`}
       whileHover={reduceMotion ? undefined : { y: -2 }}
       whileTap={reduceMotion ? undefined : { scale: 0.98 }}
       {...props}

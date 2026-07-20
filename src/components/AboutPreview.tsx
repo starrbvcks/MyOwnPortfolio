@@ -3,10 +3,9 @@ import { siteMeta } from "../content";
 import { GrainOverlay } from "./GrainOverlay";
 
 const aboutLines = [
-  "I design and build web experiences from first visual direction to final responsive details.",
-  "I like interfaces with a strong point of view, but the path through them still has to feel clear.",
-  "I pay attention to typography, rhythm, image treatment, interaction states, and the parts people notice only when they break.",
-  "My work sits between visual identity and front-end implementation, which helps ideas survive the trip from Figma to browser.",
+  "I design web experiences from visual direction to responsive detail.",
+  "I like bold interfaces that still feel clear to move through.",
+  "I care about typography, rhythm, image treatment, and interaction states.",
 ];
 
 export function AboutPreview() {
@@ -38,7 +37,7 @@ export function AboutPreview() {
         </motion.div>
 
         <motion.div
-          className="border-4 border-bone bg-ink p-5 transition-colors hover:border-pink sm:p-7 lg:p-9"
+          className="rounded-md border border-bone/45 bg-ink/88 p-5 transition-colors hover:border-pink/70 sm:p-7 lg:p-9"
           initial={reduceMotion ? false : { opacity: 0, y: 34 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
@@ -47,10 +46,10 @@ export function AboutPreview() {
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-pink-light">
             {siteMeta.discipline.replace("WEB DEVELOPMENT", "VISUAL DIRECTION")}
           </p>
-          <div className="mt-7 grid gap-4">
+          <div className="mt-8 grid gap-7">
             {aboutLines.map((line) => (
               <p
-                className="border-l-4 border-pink/70 pl-4 text-lg leading-8 text-bone sm:text-xl"
+                className="border-l-2 border-pink/65 pl-5 text-lg leading-8 text-bone sm:text-xl"
                 key={line}
               >
                 {line}

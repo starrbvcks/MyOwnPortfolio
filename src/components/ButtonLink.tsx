@@ -19,7 +19,7 @@ export function ButtonLink({
   return (
     <a
       href={href}
-      className={`inline-flex min-h-12 items-center justify-center border-2 px-5 py-3 font-sans text-xs font-bold uppercase tracking-[0.12em] transition-colors ${styles}`}
+      className={`inline-flex min-h-12 items-center justify-center border-2 px-5 py-3 font-sans text-[0.82rem] font-black uppercase tracking-[0.1em] transition-colors ${styles}`}
     >
       {children}
     </a>

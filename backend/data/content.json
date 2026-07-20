@@ -1,0 +1,76 @@
+{
+  "playground": {
+    "eyebrow": "04 / Playground / Creative Experiments",
+    "title": "Things I made because I couldn't leave the idea alone.",
+    "items": [
+      {
+        "number": "001",
+        "title": "Scroll Typography Study",
+        "type": "Motion Prototype",
+        "technology": "Framer Motion / React",
+        "note": "A motion sketch for mapping scroll progress to staggered editorial type without hiding the actual message.",
+        "year": "2026"
+      },
+      {
+        "number": "002",
+        "title": "Cursor Distortion Experiment",
+        "type": "Interaction Study",
+        "technology": "Canvas / TypeScript",
+        "note": "A pointer-led distortion study with a static touch fallback so the idea is still readable without a cursor.",
+        "year": "2026"
+      },
+      {
+        "number": "003",
+        "title": "Interactive Album Poster",
+        "type": "Digital Poster",
+        "technology": "CSS / Framer Motion",
+        "note": "A responsive poster prototype where track metadata, halftone overlays, and motion cues behave like interface material.",
+        "year": "2026"
+      }
+    ]
+  },
+  "visual": {
+    "eyebrow": "05 / Visual Design",
+    "title": "Beyond the Browser",
+    "description": "",
+    "items": [
+      {
+        "title": "Modern Form ‍~ H&M Editorial",
+        "category": "Editorial Print",
+        "year": "2026",
+        "note": "A contemporary fashion magazine combining expressive typography with high-contrast editorial photography.",
+        "image": "http://127.0.0.1:8011/uploads/1784390299551-0-p2.png",
+        "images": [
+          "http://127.0.0.1:8011/uploads/1784390299551-0-p2.png",
+          "http://127.0.0.1:8011/uploads/1784385338008-0-p3.png"
+        ],
+        "imageAlt": "High contrast editorial poster design with architectural geometry",
+        "variant": "large"
+      },
+      {
+        "title": "Stellar Vortex",
+        "category": "Experimental Pattern Design",
+        "year": "2026",
+        "note": "A geometric pattern study exploring repetition, optical depth, and radial movement.",
+        "image": "http://127.0.0.1:8011/uploads/1784384900882-0-pattern.png",
+        "images": [
+          "http://127.0.0.1:8011/uploads/1784384900882-0-pattern.png"
+        ],
+        "imageAlt": "Moody album cover direction with performer and dark stage lighting",
+        "variant": "image"
+      },
+      {
+        "title": "Les Fleurs du Mal",
+        "category": "Cultural Poster Design",
+        "year": "2025",
+        "note": "An experimental exhibition poster inspired by Tehran, Persian typography, and urban visual culture.",
+        "image": "http://127.0.0.1:8011/uploads/1784384900885-0-screenshot-878.png",
+        "images": [
+          "http://127.0.0.1:8011/uploads/1784384900885-0-screenshot-878.png"
+        ],
+        "imageAlt": "Typography Study preview",
+        "variant": "pink"
+      }
+    ]
+  }
+}

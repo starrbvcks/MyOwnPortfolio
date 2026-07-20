@@ -12,10 +12,11 @@ type MobileMenuProps = {
   isOpen: boolean;
   items: readonly NavItem[];
   location: string;
+  onNavigate: (href: string) => void;
   onClose: () => void;
 };
 
-export function MobileMenu({ isOpen, items, location, onClose }: MobileMenuProps) {
+export function MobileMenu({ isOpen, items, location, onNavigate, onClose }: MobileMenuProps) {
   const reduceMotion = useReducedMotion();
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -78,7 +79,10 @@ export function MobileMenu({ isOpen, items, location, onClose }: MobileMenuProps
           <div className="flex items-center justify-between">
             <a
               href="#home"
-              onClick={onClose}
+              onClick={(event) => {
+                event.preventDefault();
+                onNavigate("#home");
+              }}
               className="editorial-focus font-display text-xl font-extrabold uppercase text-bone"
             >
               Setareh<span className="text-pink">.</span>
@@ -111,7 +115,10 @@ export function MobileMenu({ isOpen, items, location, onClose }: MobileMenuProps
             {items.map((item, index) => (
               <motion.a
                 href={item.href}
-                onClick={onClose}
+                onClick={(event) => {
+                  event.preventDefault();
+                  onNavigate(item.href);
+                }}
                 ref={index === 0 ? firstLinkRef : undefined}
                 className="editorial-focus group flex flex-col gap-2 border-b-2 border-bone/20 pb-4 sm:block"
                 key={item.href}

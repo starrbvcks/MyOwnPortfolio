@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "backend": "node backend/server.js",
+    "start:all": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-all.ps1",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1"
   },

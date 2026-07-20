@@ -6,12 +6,13 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { AnimatedText } from "./AnimatedText";
 import { siteMeta } from "../content";
+import { AnimatedText } from "./AnimatedText";
 import { GrainOverlay } from "./GrainOverlay";
 import { HalftoneImage } from "./HalftoneImage";
 import { PinkStar } from "./PinkStar";
 import { EditorialLink } from "./EditorialLink";
+import { Typewriter } from "./ui/typewriter";
 
 function OrbitalLines() {
   const reduceMotion = useReducedMotion();
@@ -85,8 +86,8 @@ export function Hero() {
       <div className="absolute inset-x-0 top-0 h-px bg-pink/40" />
       <div className="editorial-grid absolute inset-0 opacity-35" />
 
-      <div className="mx-auto grid max-w-7xl gap-10 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-14">
-        <div className="relative order-2 lg:order-1">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[0.78fr_1.22fr] lg:items-center xl:gap-16">
+        <div className="relative order-2 lg:order-1 lg:-translate-y-3">
           <motion.div style={reduceMotion ? undefined : { x: starX, y: starY }}>
             <PinkStar
               className="absolute right-3 top-3 z-10 opacity-85 sm:right-8 lg:right-4 lg:top-6"
@@ -98,26 +99,27 @@ export function Hero() {
           <HalftoneImage imageX={canParallax ? imageX : undefined} imageY={canParallax ? imageY : undefined} />
         </div>
 
-        <div className="group/heroText relative order-1 z-10 lg:order-2">
-          <motion.p
-            className="mb-5 inline-block max-w-md border-2 border-pink px-3 py-2 font-mono text-[0.68rem] uppercase leading-5 tracking-[0.1em] text-pink-light transition-all duration-300 ease-out group-hover/heroText:-translate-y-2 group-hover/heroText:translate-x-4 group-hover/heroText:-rotate-1 group-hover/heroText:border-pink-light group-hover/heroText:text-bone"
+        <div className="group/heroText relative order-1 z-10 max-w-3xl lg:order-2">
+          <motion.div
+            className="mb-5 transition-all duration-300 ease-out group-hover/heroText:translate-x-2"
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            whileHover={
-              reduceMotion
-                ? undefined
-                : {
-                    x: 8,
-                    y: -3,
-                    rotate: -0.6,
-                    borderColor: "#FFC2DC",
-                    color: "#F5F2F3",
-                  }
-            }
+            whileHover={reduceMotion ? undefined : { x: 6 }}
             transition={{ delay: 0.18, duration: 0.45 }}
           >
-            Setareh means star. Made to stand out in the dark.
-          </motion.p>
+            <Typewriter
+              as="p"
+              text="Setareh means star. Made to stand out in the dark."
+              loop
+              speed={42}
+              initialDelay={0}
+              waitTime={3000}
+              respectReducedMotion={false}
+              cursorChar="_"
+              cursorClassName="ml-1 text-pink"
+              className="font-mono text-xs leading-6 text-pink-light"
+            />
+          </motion.div>
 
           <div className="relative">
             <PinkStar
@@ -130,21 +132,20 @@ export function Hero() {
               lines={["DESIGN.", "CODE.", "CHARACTER."]}
               highlightLines={["CODE."]}
               interactive
-              lineClassName="transition-transform duration-300 ease-out group-hover/heroText:-translate-y-1 group-hover/heroText:translate-x-5 group-hover/heroText:-rotate-1"
-              className="max-w-[54rem] font-sans text-[clamp(2.65rem,16vw,6.8rem)] font-extrabold uppercase leading-[1.02] tracking-normal text-bone [overflow-wrap:anywhere] sm:text-[clamp(3.8rem,10vw,6.8rem)] lg:text-[clamp(4.3rem,6.45vw,6.9rem)] xl:text-[clamp(5rem,6.6vw,7.2rem)]"
+              lineClassName="transition-transform duration-300 ease-out group-hover/heroText:translate-x-2"
+              className="max-w-[46rem] font-sans text-[clamp(2.55rem,13vw,5.4rem)] font-extrabold uppercase leading-[1.04] tracking-normal text-bone [overflow-wrap:anywhere] sm:text-[clamp(3.3rem,8.4vw,5.7rem)] lg:text-[clamp(3.8rem,5.35vw,5.8rem)] xl:text-[clamp(4.15rem,5.3vw,6.05rem)]"
             />
           </div>
 
           <motion.p
-            className="mt-6 max-w-2xl border-l-4 border-pink pl-5 text-base leading-8 text-muted transition-all duration-300 ease-out group-hover/heroText:-translate-y-1 group-hover/heroText:translate-x-4 group-hover/heroText:text-bone sm:text-lg lg:max-w-xl"
+            className="mt-6 max-w-xl border-l-2 border-pink/80 pl-5 text-base leading-7 text-muted transition-all duration-300 ease-out group-hover/heroText:translate-x-2 group-hover/heroText:text-bone sm:text-[1.05rem]"
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={
               reduceMotion
                 ? undefined
                 : {
-                    x: 10,
-                    y: -2,
+                    x: 6,
                     color: "#F5F2F3",
                     borderColor: "#FF3B9D",
                   }
@@ -167,19 +168,6 @@ export function Hero() {
             </EditorialLink>
           </motion.div>
 
-          <motion.div
-            className="mt-10 flex items-center gap-3 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted"
-            initial={reduceMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.05, duration: 0.4 }}
-          >
-            <motion.span
-              className="h-10 w-px bg-pink"
-              animate={reduceMotion ? undefined : { scaleY: [0.45, 1, 0.45] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            />
-            Scroll & Explore
-          </motion.div>
         </div>
       </div>
     </section>

@@ -32,9 +32,9 @@ export function AnimatedText({
               interactive && !reduceMotion
                 ? {
                     y: [0, -12, 0, 8, 0],
-                    x: index % 2 === 0 ? [0, 18, 0, -10, 0] : [0, -18, 0, 10, 0],
-                    rotate: index % 2 === 0 ? [0, -1.5, 0, 1, 0] : [0, 1.5, 0, -1, 0],
-                    scale: [1, 1.018, 1, 1.01, 1],
+                    x: index % 2 === 0 ? [0, 8, 0, -5, 0] : [0, -8, 0, 5, 0],
+                    rotate: index % 2 === 0 ? [0, -0.6, 0, 0.4, 0] : [0, 0.6, 0, -0.4, 0],
+                    scale: [1, 1.006, 1, 1.004, 1],
                   }
                 : { y: 0, x: 0, rotate: 0, scale: 1 }
             }
@@ -49,7 +49,7 @@ export function AnimatedText({
             {interactive ? (
               <SparklesText
                 text={line}
-                sparklesCount={line === "CODE." ? 18 : 12}
+                sparklesCount={line === "CODE." ? 10 : 6}
                 colors={{ first: "#FF3B9D", second: "#FFC2DC" }}
               />
             ) : (
